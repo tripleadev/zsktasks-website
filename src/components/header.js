@@ -7,15 +7,7 @@ import "./header.css"
 const Header = ({ siteTitle }) => (
   <header>
     <div className="header">
-      <Link
-        to="/"
-        style={{
-          color: `white`,
-          fontWeight: 700,
-        }}
-      >
-        <h1>{siteTitle}</h1>
-      </Link>
+      <Link to="/" className="link"> {siteTitle} </Link>
       <ul className="list">
         <li>
           <Link to="/">Zadania</Link>

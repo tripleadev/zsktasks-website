@@ -11,6 +11,12 @@ header {
   align-items: center;
 }
 
+.header .link {
+  color: white;
+  font-weight: 700;
+  font-size: 1.9em;
+}
+
 .list {
   display: flex;
 }
