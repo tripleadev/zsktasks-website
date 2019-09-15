@@ -1,0 +1,9 @@
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  max-width: 100%;
+
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  grid-column-gap: 2em;
+}

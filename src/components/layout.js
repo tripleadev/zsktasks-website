@@ -14,9 +14,9 @@ import "./layout.css"
 
 import fetch from '../scripts/fetch'
 
-fetch()
 
 const Layout = ({ children }) => {
+  console.log(fetch());
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
