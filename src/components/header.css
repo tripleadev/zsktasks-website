@@ -33,3 +33,9 @@ header {
   text-decoration: none;
   color: white;
 }
+
+@media screen and (max-width: 375px) {
+  list {
+    height: 100vh;
+  }
+}

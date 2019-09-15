@@ -12,9 +12,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
-import fetch from '../scripts/fetch'
-
-
 const Layout = ({ children }) => {
   console.log(fetch());
   const data = useStaticQuery(graphql`

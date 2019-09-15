@@ -7,6 +7,7 @@ export default class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: '',
       data: [],
     };
     this.componentDidMount.bind(this);
@@ -20,16 +21,18 @@ export default class Grid extends Component {
         this.setState({data: response.data.tasks})
       })
       .catch(function (error) {
-        console.log(error);
+        this.setState({error: error});
       })
   }
 
   renderItems() {
-    return this.state.data.map(item => (
-      <div key={item.title}>
-        <h3>{item.title}</h3>
-      </div>
-    ));
+    if(!this.state.error) {
+      return this.state.data.map(item => (
+        <div key={item.title}>
+          <h3>{item.title}</h3>
+        </div>
+      ));
+    } else return (<p>{this.state.error}</p>)
   }
 
   render() {

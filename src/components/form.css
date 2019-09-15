@@ -1,0 +1,25 @@
+.form {
+  max-width: 50%;
+  margin-top: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form * {
+  width: 25vw;
+  margin: .3em;
+}
+
+form button {
+  background: #28146D;
+  border: none;
+  padding: .3em;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
