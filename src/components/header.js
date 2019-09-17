@@ -11,6 +11,9 @@ const Header = ({ siteTitle }) => (
         {" "}
         {siteTitle}{" "}
       </Link>
+      <button className="menuIcon">
+        <div className="bar"></div>
+      </button>
       <ul className="list">
         <li>
           <Link to="/">Zadania</Link>

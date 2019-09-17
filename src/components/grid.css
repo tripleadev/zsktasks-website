@@ -4,10 +4,25 @@
   width: 100%;
 
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 10px;
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
 }
 
 .gridItem {
-  padding: 5px;
-  border: 3px solid black;
+  padding: 10px;
+  border: 3px solid #707070;
+  min-height: 240px;
+}
+
+.gridItem *:not(:first-child) {
+  margin-top: 10px;
+}
+
+.gridItem .details {
+  display: flex;
+  width: 100%;
+}
+
+.details *:not(:first-child) {
+  margin: 0 0 0 15px;
 }

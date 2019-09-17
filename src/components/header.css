@@ -34,8 +34,56 @@ header {
   color: white;
 }
 
-@media screen and (max-width: 375px) {
-  list {
-    height: 100vh;
+.header .menuIcon {
+  display: none;
+}
+
+.menuIcon {
+  width: 35px;
+  height: 25px;
+  display: inline-block;
+  position: relative;
+
+  background: transparent;
+  border: none;
+}
+
+.menuIcon .bar {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  background: white;
+
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menuIcon .bar::before,
+.menuIcon .bar::after {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  background: white;
+
+  content: '';
+  left: 0;
+}
+
+.menuIcon .bar::before {
+  top: -10px;
+}
+
+.menuIcon .bar::after {
+  top: 10px;
+}
+
+@media screen and (max-width: 479px) {
+  .header .list {
+    display: none;
+  }
+
+  .header .menuIcon {
+    display: block;
   }
 }

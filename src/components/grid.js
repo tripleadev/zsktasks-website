@@ -31,9 +31,11 @@ export default class Grid extends Component {
     if (!this.state.error) {
       return this.state.data.map(item => (
         <div className="gridItem" key={item.title}>
-          <h3>{item.title}</h3>
-          <h6>{item.subject}</h6>
-          <h6>{item.date}</h6>
+          <h2>{item.title}</h2>
+          <div className="details">
+            <h5>{item.subject}</h5>
+            <h5>{item.date}</h5>
+          </div>
           <p>{item.description}</p>
         </div>
       ))
