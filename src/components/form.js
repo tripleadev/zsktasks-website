@@ -9,38 +9,30 @@ export default class Form extends Component {
     super(props);
     this.state = {
       error: '',
-      data: [],
+      info: '',
     };
-    this.sendData.bind(this);
     this.render.bind(this);
-  }
-
-  sendData(data) {
-    const url = 'https://cors-anywhere.herokuapp.com/zsktasks-api.herokuapp.com/all';
-
-    axios.post(url, data);
   }
 
   render() {
     return (
       <div className="form">
         <Formik
-          initialValues={{ title: '', password: '' }}
           onSubmit={(values, { setSubmitting }) => {
+            console.log(values);
             const url = 'https://cors-anywhere.herokuapp.com/zsktasks-api.herokuapp.com/add';
             axios.post(url, values)
             .then(()=>{
-              setSubmitting = false;
+              setSubmitting(false);
+              this.setState({info: 'Zadanie dodane !!!'});
             })
             .catch(()=>{
-              setSubmitting = false;
+              setSubmitting(false);
             });
           }}
         >
           {({
             values,
-            errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -85,10 +77,10 @@ export default class Form extends Component {
                 value={values.email}
                 placeholder="Opis"
               />
-              {errors.email && touched.email && errors.email}
               <button type="submit" disabled={isSubmitting}>
                 DODAJ
               </button>
+              {this.state.info}
             </form>
           )}
         </Formik>

@@ -8,8 +8,7 @@ const Header = ({ siteTitle }) => (
   <header>
     <div className="header">
       <Link to="/" className="link">
-        {" "}
-        {siteTitle}{" "}
+        {siteTitle}
       </Link>
       <button className="menuIcon">
         <div className="bar"></div>
