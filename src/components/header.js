@@ -16,6 +16,7 @@ const Header = ({ siteTitle }) => {
           className="menuIcon"
           onClick={() => {
             setMenuOpened(isMenuOpened ? false : true)
+            document.body.style.overflow = isMenuOpened ? "auto" : "hidden"
           }}
         >
           <div
