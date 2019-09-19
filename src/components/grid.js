@@ -14,8 +14,7 @@ export default class Grid extends Component {
   }
 
   componentDidMount() {
-    const url =
-      "https://cors-anywhere.herokuapp.com/zsktasks-api.herokuapp.com/all"
+    const url = "https://zsktasks-api.herokuapp.com/all"
 
     axios
       .get(url)

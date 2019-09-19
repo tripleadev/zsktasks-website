@@ -1,90 +1,65 @@
 import React, { Component } from "react"
-import axios from "axios"
-import { Formik } from 'formik';
+import axios from "axios" // eslint-disable-line
+import { Formik } from "formik"
+import { Form, Datepicker, SubmitBtn, Input } from "react-formik-ui"
 
 import "./form.css"
 
-export default class Form extends Component {
+export default class AddForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      error: '',
-      info: '',
-    };
-    this.render.bind(this);
+      error: "",
+      info: "",
+    }
+    this.render.bind(this)
   }
 
   render() {
     return (
       <div className="form">
         <Formik
-          onSubmit={(values, { setSubmitting }) => {
-            console.log(values);
-            const url = 'https://cors-anywhere.herokuapp.com/zsktasks-api.herokuapp.com/add';
-            axios.post(url, values)
-            .then(()=>{
-              setSubmitting(false);
-              this.setState({info: 'Zadanie dodane !!!'});
-            })
-            .catch(()=>{
-              setSubmitting(false);
-            });
+          initialValues={{
+            datePicker: "",
           }}
-        >
-          {({
-            values,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="title"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-                placeholder="Nazwa"
-              />
-              <input
-                type="date"
-                name="date"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-              />
-              <input
-                type="text"
-                name="subject"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-                placeholder="Przedmiot"
-              />
-              <input
-                type="text"
-                name="uploadCode"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-                placeholder="Kod bezpieczeństwa"
-              />
-              <textarea
-                name="description"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-                placeholder="Opis"
-              />
-              <button type="submit" disabled={isSubmitting}>
-                DODAJ
-              </button>
-              {this.state.info}
-            </form>
+          onSubmit={data => alert(JSON.stringify(data))}
+          render={() => (
+            <Form mode="themed">
+              <div>
+                <Input name="title" placeholder="Nazwa zadania" />
+              </div>
+              <div>
+                <Input
+                  name="subject"
+                  placeholder="Przedmiot, na który zostało zadane zadanie"
+                />
+              </div>
+              <div>
+                <Datepicker
+                  name="datePicker"
+                  placeholder="Wybierz datę"
+                  disabledKeyboardNavigation={false}
+                />
+              </div>
+              <div>
+                <Input
+                  component="textarea"
+                  name="description"
+                  placeholder="Opis zadania"
+                />
+              </div>
+              <div>
+                <Input
+                  name="password"
+                  placeholder="Kod zabezpieczający"
+                  type="password"
+                />
+              </div>
+              <SubmitBtn />
+            </Form>
           )}
-        </Formik>
+        />
       </div>
-    );
+    )
   }
 }

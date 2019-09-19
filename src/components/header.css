@@ -1,5 +1,5 @@
 header {
-  background: #28146D;
+  background: #28146d;
 }
 
 .header {
@@ -24,7 +24,7 @@ header {
 .list li {
   color: white;
   list-style-type: none;
-  padding: .5em;
+  padding: 0.5em;
   font-weight: 600;
   font-size: 1.2em;
 }
@@ -43,9 +43,11 @@ header {
   height: 25px;
   display: inline-block;
   position: relative;
+  z-index: 10;
 
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .menuIcon .bar {
@@ -53,10 +55,17 @@ header {
   height: 5px;
   position: absolute;
   background: white;
+  opacity: 1;
 
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.menuIcon .bar--menu-opened {
+  background: transparent;
 }
 
 .menuIcon .bar::before,
@@ -66,21 +75,52 @@ header {
   position: absolute;
   background: white;
 
-  content: '';
+  content: "";
   left: 0;
 }
 
 .menuIcon .bar::before {
   top: -10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menuIcon .bar--menu-opened::before {
+  transform: rotate(45deg);
+  top: 0px;
 }
 
 .menuIcon .bar::after {
   top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menuIcon .bar--menu-opened::after {
+  transform: rotate(-45deg);
+  top: 0px;
 }
 
 @media screen and (max-width: 479px) {
-  .header .list {
-    display: none;
+  .list {
+    position: fixed;
+    top: 0;
+    background-color: #28146d;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  .list--opened {
+    left: 0vw;
+  }
+
+  .list--closed {
+    left: 100vw;
   }
 
   .header .menuIcon {
