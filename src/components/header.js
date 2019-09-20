@@ -29,10 +29,26 @@ const Header = ({ siteTitle }) => {
           className={`list ${isMenuOpened ? "list--opened" : "list--closed"}`}
         >
           <li>
-            <Link to="/">Zadania</Link>
+            <Link
+              to="/"
+              onClick={() => {
+                setMenuOpened(isMenuOpened ? false : true)
+                document.body.style.overflow = isMenuOpened ? "auto" : "hidden"
+              }}
+            >
+              Zadania
+            </Link>
           </li>
           <li>
-            <Link to="/add">Dodaj</Link>
+            <Link
+              to="/add"
+              onClick={() => {
+                setMenuOpened(isMenuOpened ? false : true)
+                document.body.style.overflow = isMenuOpened ? "auto" : "hidden"
+              }}
+            >
+              Dodaj
+            </Link>
           </li>
         </ul>
       </div>

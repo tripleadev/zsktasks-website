@@ -1,9 +1,26 @@
 import React, { Component } from "react"
-import axios from "axios" // eslint-disable-line
+import axios from "axios"
 import { Formik } from "formik"
 import { Form, Datepicker, SubmitBtn, Input } from "react-formik-ui"
+import * as Yup from "yup"
 
 import "./form.css"
+
+const formValidation = Yup.object().shape({
+  datePicker: Yup.date().min(
+    new Date(Date.now() + -1 * 24 * 3600 * 1000),
+    "Podaj późniejszą datę"
+  ),
+  title: Yup.string()
+    .min(2, "Za krótki")
+    .max(30, "Za długi"),
+  subject: Yup.string()
+    .min(2, "Za krótki")
+    .max(30, "Za długi"),
+  description: Yup.string()
+    .min(4, "Za krótki")
+    .max(500, "Za długi"),
+})
 
 export default class AddForm extends Component {
   constructor(props) {
@@ -21,17 +38,39 @@ export default class AddForm extends Component {
         <Formik
           initialValues={{
             datePicker: "",
+            title: "",
+            subject: "",
+            description: "",
+            password: "",
           }}
-          onSubmit={data => alert(JSON.stringify(data))}
-          render={() => (
+          validationSchema={formValidation}
+          onSubmit={data => {
+            axios
+              .post("https://zsktasks-api.herokuapp.com/add", {
+                date: data.datePicker,
+                title: data.title,
+                subject: data.subject,
+                description: data.description,
+                uploadCode: data.password,
+              })
+              .then(res => {
+                alert(res)
+              })
+          }}
+          render={({ errors }) => (
             <Form mode="themed">
               <div>
-                <Input name="title" placeholder="Nazwa zadania" />
+                <Input
+                  name="title"
+                  placeholder="Nazwa zadania"
+                  hint={errors.title}
+                />
               </div>
               <div>
                 <Input
                   name="subject"
                   placeholder="Przedmiot, na który zostało zadane zadanie"
+                  hint={errors.subject}
                 />
               </div>
               <div>
@@ -46,6 +85,7 @@ export default class AddForm extends Component {
                   component="textarea"
                   name="description"
                   placeholder="Opis zadania"
+                  hint={errors.description}
                 />
               </div>
               <div>
