@@ -156,7 +156,6 @@ export default class AddForm extends Component {
           }}
           validationSchema={formValidation}
           onSubmit={data => {
-            console.log(data.datePicker.toISOString())
             axios
               .post("https://zsktasks-api.herokuapp.com/add", {
                 date: data.datePicker.toISOString(),
