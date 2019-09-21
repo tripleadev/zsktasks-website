@@ -24,111 +24,111 @@ const formValidation = Yup.object().shape({
 
 const subjects = [
   {
-    value: "1",
+    value: "BHP",
     label: "BHP",
   },
   {
-    value: "2",
+    value: "Biologia",
     label: "Biologia",
   },
   {
-    value: "3",
+    value: "Chemia",
     label: "Chemia",
   },
   {
-    value: "4",
+    value: "EDB",
     label: "EDB",
   },
   {
-    value: "5",
+    value: "Fizyka",
     label: "Fizyka",
   },
   {
-    value: "6",
+    value: "Geografia",
     label: "Geografia",
   },
   {
-    value: "7",
+    value: "Historia",
     label: "Historia",
   },
   {
-    value: "8",
+    value: "Informatyka Gr.1",
     label: "Informatyka Gr.1",
   },
   {
-    value: "9",
+    value: "Informatyka Gr. 2",
     label: "Informatyka Gr. 2",
   },
   {
-    value: "10",
+    value: "Język Angielski Gr. 1",
     label: "Język Angielski Gr. 1",
   },
   {
-    value: "11",
+    value: "Język Angielski Gr. 2",
     label: "Język Angielski Gr. 2",
   },
   {
-    value: "12",
+    value: "Język Niemiecki Gr. 1",
     label: "Język Niemiecki Gr. 1",
   },
   {
-    value: "13",
+    value: "Język Niemiecki Gr. 2",
     label: "Język Niemiecki Gr. 2",
   },
   {
-    value: "14",
+    value: "Język Polski",
     label: "Język Polski",
   },
   {
-    value: "15",
+    value: "Matematyka",
     label: "Matematyka",
   },
   {
-    value: "16",
+    value: "Ogólne",
     label: "Ogólne",
   },
   {
-    value: "17",
+    value: "Plastyka",
     label: "Plastyka",
   },
   {
-    value: "18",
+    value: "PSK Gr. 1",
     label: "PSK Gr. 1",
   },
   {
-    value: "19",
+    value: "PSK Gr. 2",
     label: "PSK Gr. 2",
   },
   {
-    value: "20",
+    value: "PSO Gr. 1",
     label: "PSO Gr. 1",
   },
   {
-    value: "21",
+    value: "PSO Gr.2",
     label: "PSO Gr.2",
   },
   {
-    value: "22",
+    value: "PUTK Gr. 1",
     label: "PUTK Gr. 1",
   },
   {
-    value: "23",
+    value: "PUTK Gr. 2",
     label: "PUTK Gr. 2",
   },
   {
-    value: "24",
+    value: "SK",
     label: "SK",
   },
   {
-    value: "25",
+    value: "SO",
     label: "SO",
   },
   {
-    value: "26",
+    value: "UTK",
     label: "UTK",
   },
   {
-    value: "27",
+    value: "Zajęcia z wychowawcą",
     label: "Zajęcia z wychowawcą",
   },
 ]
