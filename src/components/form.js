@@ -3,6 +3,7 @@ import axios from "axios"
 import { Formik } from "formik"
 import { Form, Datepicker, SubmitBtn, Input, Select } from "react-formik-ui"
 import * as Yup from "yup"
+import moment from "moment"
 
 import "./form.css"
 
@@ -158,7 +159,9 @@ export default class AddForm extends Component {
           onSubmit={data => {
             axios
               .post("https://zsktasks-api.herokuapp.com/add", {
-                date: data.datePicker.toISOString(),
+                date: moment(data.datePicker.toISOString()).format(
+                  "YYYY-MM-DD"
+                ),
                 title: data.title,
                 subject: data.subject,
                 description: data.description,
@@ -198,6 +201,7 @@ export default class AddForm extends Component {
                 name="datePicker"
                 placeholder="Wybierz datę"
                 disabledKeyboardNavigation={false}
+                dateFormat="yyyy-MM-dd"
                 required
               />
             </div>

@@ -29,7 +29,7 @@ export default class Grid extends Component {
   renderItems() {
     if (!this.state.error) {
       return this.state.data.map(item => (
-        <div className="gridItem" key={item.title}>
+        <div className="gridItem" key={item.id}>
           <h2>{item.title}</h2>
           <div className="details">
             <h5>{item.subject}</h5>
