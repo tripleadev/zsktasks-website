@@ -33,7 +33,7 @@ module.exports = {
         name: "zskTasks",
         short_name: `zskTasks`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#28146d`,
         theme_color: `#28146d`,
         display: `standalone`,
         icon: `src/images/logo.png`,
