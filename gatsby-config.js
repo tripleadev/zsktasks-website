@@ -27,6 +27,19 @@ module.exports = {
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "zskTasks",
+        short_name: `zskTasks`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#28146d`,
+        display: `standalone`,
+        icon: `src/images/logo.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
