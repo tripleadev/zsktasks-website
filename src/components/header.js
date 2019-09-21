@@ -32,8 +32,7 @@ const Header = ({ siteTitle }) => {
             <Link
               to="/"
               onClick={() => {
-                setMenuOpened(isMenuOpened ? false : true)
-                document.body.style.overflow = isMenuOpened ? "auto" : "hidden"
+                document.body.style.overflow = "auto"
               }}
             >
               Zadania
@@ -43,8 +42,7 @@ const Header = ({ siteTitle }) => {
             <Link
               to="/add"
               onClick={() => {
-                setMenuOpened(isMenuOpened ? false : true)
-                document.body.style.overflow = isMenuOpened ? "auto" : "hidden"
+                document.body.style.overflow = "auto"
               }}
             >
               Dodaj
