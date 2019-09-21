@@ -159,9 +159,7 @@ export default class AddForm extends Component {
           onSubmit={data => {
             axios
               .post("https://zsktasks-api.herokuapp.com/add", {
-                date: moment(data.datePicker.toISOString()).format(
-                  "YYYY-MM-DD"
-                ),
+                date: moment(data.datePicker).format("YYYY-MM-DD"),
                 title: data.title,
                 subject: data.subject,
                 description: data.description,
