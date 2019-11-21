@@ -27,7 +27,6 @@ const StyledTable = styled.table`
     td {
       padding: 5px;
       border: none;
-      min-width: 400px;
 
       input[type="text"] {
         width: 100%;
@@ -36,7 +35,6 @@ const StyledTable = styled.table`
         outline: none;
         border: none;
         font-size: 16px;
-        min-width: 400px;
       }
     }
 
