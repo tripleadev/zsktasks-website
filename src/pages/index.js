@@ -7,6 +7,7 @@ import Grid from "../components/grid"
 
 const IndexPage = () => (
   <Layout>
+    <h1>Zadania</h1>
     <SEO title="Zadania" />
     <Grid />
   </Layout>

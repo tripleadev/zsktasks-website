@@ -48,6 +48,16 @@ const Header = ({ siteTitle }) => {
               Dodaj
             </Link>
           </li>
+          <li>
+            <Link
+              to="/schedule"
+              onClick={() => {
+                document.body.style.overflow = "auto"
+              }}
+            >
+              Harmonogram zeszytu
+            </Link>
+          </li>
         </ul>
       </div>
     </header>
