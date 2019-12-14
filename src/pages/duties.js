@@ -70,7 +70,7 @@ class Duties extends React.Component {
           <tr>
             <th>Dyżurni na aktualny tydzień</th>
           </tr>
-          {this.students.forEach(student => {
+          {this.state.students.map(student => {
             return (
               <tr>
                 <td>{student}</td>
