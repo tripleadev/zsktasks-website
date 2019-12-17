@@ -68,7 +68,7 @@ class Duties extends React.Component {
         <h1>Dyżurni</h1>
         <StyledTable>
           <tr>
-            <th>Dyżurni na aktualny tydzień</th>
+            <th>Dyżurni na obecny tydzień</th>
           </tr>
           {this.state.students.map(student => {
             return (
