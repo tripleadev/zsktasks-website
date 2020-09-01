@@ -16,6 +16,7 @@
     "gatsby-plugin-styled-components": "^3.1.13",
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-sharp": "^2.2.14",
+    "light-date": "^1.1.2",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",

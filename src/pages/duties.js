@@ -49,14 +49,14 @@ class Duties extends React.Component {
     super(props)
 
     this.state = {
-      students: [],
+      duties: [],
     }
   }
 
   componentDidMount() {
     axios.get("https://zsktasks-api.herokuapp.com/duties").then(res => {
       this.setState({
-        students: res.students,
+        duties: res.data.duties,
       })
     })
   }
@@ -67,16 +67,28 @@ class Duties extends React.Component {
         <SEO title="Dyżurni" />
         <h1>Dyżurni</h1>
         <StyledTable>
-          <tr>
-            <th>Dyżurni na obecny tydzień</th>
-          </tr>
-          {this.state.students.map(student => {
-            return (
-              <tr>
-                <td>{student}</td>
-              </tr>
-            )
-          })}
+          <thead>
+            <tr>
+              <th colSpan={this.state.duties.length}>
+                Dyżurni na obecny tydzień
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dyżurny 1</td>
+              <td>Dyżurny 2</td>
+            </tr>
+            <tr>
+              {this.state.duties.map((duty, i) => {
+                return (
+                  <td key={duty.name}>
+                    <b>{duty.name}</b>
+                  </td>
+                )
+              })}
+            </tr>
+          </tbody>
         </StyledTable>
       </Layout>
     )
