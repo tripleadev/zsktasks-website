@@ -166,17 +166,17 @@ export default class AddForm extends Component {
                 uploadCode: data.password,
               })
               .then(res => {
-                if (res.status === 200) {
-                  alert(
-                    `Utworzono nowe zadanie o tytule: \n${res.data.data.title}`
-                  )
-                }
+                alert(
+                  `Utworzono nowe zadanie o tytule: \n${res.data.data.title}`
+                )
               })
               .catch(err => {
                 let errors = ""
                 err.response.data.errors.errors.map(error => {
                   return (errors += ` ${error.msg}`)
                 })
+
+                console.log(err.response.data)
 
                 return alert(`Błąd w formularzu:${errors}`)
               })

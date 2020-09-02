@@ -55,9 +55,11 @@ class Duties extends React.Component {
 
   componentDidMount() {
     axios.get("https://zsktasks-api.herokuapp.com/duties").then(res => {
-      this.setState({
-        duties: res.data.duties,
-      })
+      if (res.data.duties) {
+        this.setState({
+          duties: res.data.duties,
+        })
+      }
     })
   }
 
