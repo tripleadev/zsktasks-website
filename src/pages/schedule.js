@@ -79,7 +79,7 @@ class Notebook extends React.Component {
             return (
               <tr>
                 <td>{moment(day.date).format("DD-MM-YYYY")}</td>
-                <td>{day.user.Name}</td>
+                <td>{day.name}</td>
                 <td>{day.comment}</td>
               </tr>
             )
