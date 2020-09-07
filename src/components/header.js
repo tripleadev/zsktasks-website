@@ -68,6 +68,11 @@ const Header = ({ siteTitle }) => {
               Dyżurni
             </Link>
           </li>
+          <li>
+            <a href="https://www.zsk.poznan.pl/2021plany/technikum/plany/o17.html">
+              Plan Lekcji
+            </a>
+          </li>
         </ul>
       </div>
     </header>
