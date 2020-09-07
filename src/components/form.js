@@ -166,7 +166,7 @@ export default class AddForm extends Component {
           validationSchema={formValidation}
           onSubmit={data => {
             axios
-              .post("https://zsktasks-api.herokuapp.com/add", {
+              .post("https://zsktasks-api.herokuapp.com/tasks", {
                 date: moment(data.datePicker).format("YYYY-MM-DD"),
                 title: data.title,
                 subject: data.subject,
