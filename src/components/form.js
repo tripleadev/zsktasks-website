@@ -25,10 +25,6 @@ const formValidation = Yup.object().shape({
 
 const subjects = [
   {
-    value: "BHP",
-    label: "BHP",
-  },
-  {
     value: "Biologia",
     label: "Biologia",
   },
@@ -37,8 +33,8 @@ const subjects = [
     label: "Chemia",
   },
   {
-    value: "EDB",
-    label: "EDB",
+    value: "Etyka",
+    label: "Etyka",
   },
   {
     value: "Fizyka",
@@ -89,10 +85,6 @@ const subjects = [
     label: "Ogólne",
   },
   {
-    value: "Plastyka",
-    label: "Plastyka",
-  },
-  {
     value: "PSK Gr. 1",
     label: "PSK Gr. 1",
   },
@@ -117,6 +109,18 @@ const subjects = [
     label: "PUTK Gr. 2",
   },
   {
+    value: "Programowanie",
+    label: "Programowanie",
+  },
+  {
+    value: "Podstawy przedsiębiorczości",
+    label: "Podstawy przedsiębiorczości",
+  },
+  {
+    value: "Religia",
+    label: "Religia",
+  },
+  {
     value: "SK",
     label: "SK",
   },
@@ -127,6 +131,10 @@ const subjects = [
   {
     value: "UTK",
     label: "UTK",
+  },
+  {
+    value: "Witryny i aplikacje internetowe",
+    label: "Witryny i aplikacje internetowe",
   },
   {
     value: "Zajęcia z wychowawcą",
