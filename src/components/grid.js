@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
+import { format } from "light-date"
 
 import "./grid.css"
 
@@ -33,7 +34,7 @@ export default class Grid extends Component {
           <h2>{item.title}</h2>
           <div className="details">
             <h5>{item.subject}</h5>
-            <h5>{item.date}</h5>
+            <h5>{format(new Date(item.date), "{dd}.{MM}.{yyyy}")}</h5>
           </div>
           <p>{item.description}</p>
         </div>

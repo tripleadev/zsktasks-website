@@ -1,5 +1,5 @@
 html {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -11,7 +11,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -24,7 +26,7 @@ a {
 h1 {
   margin: 0;
   font-size: 36px;
-  color: #28146D;
+  color: #28146d;
 }
 
 .container {
@@ -37,7 +39,7 @@ footer {
   width: 100%;
   text-align: center;
   margin: 20px;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 @media screen and (max-width: 479px) {
