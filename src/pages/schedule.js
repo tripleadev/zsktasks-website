@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 
 import styled from "styled-components"
 import axios from "axios"
-import moment from "moment"
+import { format } from "light-date"
 
 const StyledTable = styled.table`
   margin: 20px;
@@ -71,14 +71,16 @@ class Notebook extends React.Component {
         <h1>Harmonogram zeszytu</h1>
         <StyledTable>
           <tr>
-            <th>Dzień</th>
+            <th>Od</th>
+            <th>Do</th>
             <th>Osoba</th>
             <th>Adnotacje</th>
           </tr>
           {this.state.days.map(day => {
             return (
               <tr>
-                <td>{moment(day.date).format("DD-MM-YYYY")}</td>
+                <td>{format(new Date(day.from), "{yyyy}-{MM}-{dd}")}</td>
+                <td>{format(new Date(day.to), "{yyyy}-{MM}-{dd}")}</td>
                 <td>{day.name}</td>
                 <td>{day.comment}</td>
               </tr>
