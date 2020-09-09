@@ -68,16 +68,19 @@ class Notebook extends React.Component {
       <Layout>
         <SEO title="Harmonogram zeszytu" />
         <h1>Harmonogram zeszytu</h1>
+        <p>
+          Obecny cykl: <b>{this.state.days[0] && this.state.days[0].cycle}</b>
+        </p>
         <StyledTable>
           <tr>
+            <th>Przedmiot</th>
             <th>Osoba</th>
-            <th>Adnotacje</th>
           </tr>
           {this.state.days.map(day => {
             return (
               <tr>
-                <td>{day.name}</td>
                 <td>{day.comment}</td>
+                <td>{day.name}</td>
               </tr>
             )
           })}
