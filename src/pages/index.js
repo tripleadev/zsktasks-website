@@ -3,13 +3,15 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Grid from "../components/grid"
+import Tasks from "../components/tasks"
+import Filters from "../components/filters"
 
 const IndexPage = () => (
   <Layout>
     <h1>Zadania</h1>
     <SEO title="Zadania" />
-    <Grid />
+    <Filters />
+    <Tasks />
   </Layout>
 )
 

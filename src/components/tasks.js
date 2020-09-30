@@ -1,28 +1,25 @@
-import React, { Component } from "react"
+import React from "react"
 import axios from "axios"
 import { format } from "light-date"
 
-import "./grid.css"
+import "./tasks.css"
 
-export default class Grid extends Component {
+export default class Tasks extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       error: "",
       data: [],
     }
-    this.componentDidMount.bind(this)
   }
 
   componentDidMount() {
-    const url = "https://zsktasks-api.herokuapp.com/tasks"
-
     axios
-      .get(url)
+      .get("https://zsktasks-api.herokuapp.com/tasks")
       .then(response => {
         this.setState({ data: response.data.tasks })
       })
-      .catch(function(error) {
+      .catch(error => {
         this.setState({ error: error })
       })
   }
