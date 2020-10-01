@@ -15,8 +15,8 @@ export default class Tasks extends React.Component {
       overallGroup: "",
     }
 
-    this.onOverallFilterChange = this.onOverallFilterChange.bind(this)
-    this.onGermanFilterChange = this.onGermanFilterChange.bind(this)
+    this.setGermanGroup = this.setGermanGroup.bind(this)
+    this.setOverallGroup = this.setOverallGroup.bind(this)
     this.applyFilters = this.applyFilters.bind(this)
   }
 
@@ -39,14 +39,18 @@ export default class Tasks extends React.Component {
     })
   }
 
-  onOverallFilterChange(val) {
+  setOverallGroup(val) {
     this.setState({ overallGroup: val })
+
+    console.log("over")
 
     window.localStorage.setItem("overallGroup", val)
   }
 
-  onGermanFilterChange(val) {
+  setGermanGroup(val) {
     this.setState({ germanGroup: val })
+
+    console.log("german")
 
     window.localStorage.setItem("germanGroup", val)
   }
@@ -77,7 +81,7 @@ export default class Tasks extends React.Component {
       const filtered = this.applyFilters(this.state.data)
 
       return filtered.map(item => (
-        <div className="gridItem" key={item.id}>
+        <div className="gridItem" key={item._id}>
           <h2>{item.title}</h2>
           <div className="details">
             <h5>{item.subject}</h5>
@@ -93,8 +97,10 @@ export default class Tasks extends React.Component {
     return (
       <div>
         <Filters
-          onGermanChange={this.onGermanFilterChange}
-          onOverallChange={this.onOverallFilterChange}
+          setGermanGroup={this.setGermanGroup}
+          setOverallGroup={this.setOverallGroup}
+          overallGroup={this.state.overallGroup}
+          germanGroup={this.state.germanGroup}
         />
         <div className="grid">{this.renderItems()}</div>
       </div>

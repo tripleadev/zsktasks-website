@@ -14,14 +14,19 @@ const Label = styled.label`
   font-weight: bold;
 `
 
-const Filters = ({ onGermanChange, onOverallChange }) => {
+const Filters = ({
+  germanGroup,
+  setGermanGroup,
+  overallGroup,
+  setOverallGroup,
+}) => {
   const onChange = e => {
     switch (e.target.name) {
       case "overall":
-        onOverallChange(e.target.value)
+        setOverallGroup(e.target.value)
         break
       case "german":
-        onGermanChange(e.target.value)
+        setGermanGroup(e.target.value)
         break
       default:
         break
@@ -31,16 +36,26 @@ const Filters = ({ onGermanChange, onOverallChange }) => {
   return (
     <Wrapper>
       <Item>
-        <Label for="overall">Grupa ogólna: </Label>
-        <select id="overall" name="overall" onChange={onChange}>
+        <Label htmlFor="overall">Grupa ogólna: </Label>
+        <select
+          id="overall"
+          name="overall"
+          onChange={onChange}
+          value={overallGroup}
+        >
           <option value="" />
           <option value="1">Grupa 1</option>
           <option value="2">Grupa 2</option>
         </select>
       </Item>
       <Item>
-        <Label for="german">Grupa na J. Niemieckim: </Label>
-        <select id="german" name="german" onChange={onChange}>
+        <Label htmlFor="german">Grupa na J. Niemieckim: </Label>
+        <select
+          id="german"
+          name="german"
+          onChange={onChange}
+          value={germanGroup}
+        >
           <option value="" />
           <option value="1">Grupa 1 (prof. Mikołajczak)</option>
           <option value="2">Grupa 2 (prof. Tarabasz)</option>
