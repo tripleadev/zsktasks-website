@@ -3,13 +3,13 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Grid from "../components/grid"
+import Tasks from "../components/tasks"
 
 const IndexPage = () => (
   <Layout>
     <h1>Zadania</h1>
     <SEO title="Zadania" />
-    <Grid />
+    <Tasks />
   </Layout>
 )
 
