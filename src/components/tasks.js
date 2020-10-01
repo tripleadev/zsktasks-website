@@ -62,10 +62,10 @@ export default class Tasks extends React.Component {
           this.state.germanGroup === "1") ||
         (el.subject === "Język Niemiecki Gr. 1" &&
           this.state.germanGroup === "2") ||
-        (el.subject.includes("Gr. 2") &&
+        (el.subject.includes("2") &&
           !el.subject.includes("Język Niemiecki") &&
           this.state.overallGroup === "1") ||
-        (el.subject.includes("Gr. 1") &&
+        (el.subject.includes("1") &&
           !el.subject.includes("Język Niemiecki") &&
           this.state.overallGroup === "2")
       ) {
