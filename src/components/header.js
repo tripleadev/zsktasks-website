@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
             className={`bar ${
               isMenuOpened ? "bar--menu-opened" : "bar--menu-closed"
             }`}
-          ></div>
+          />
         </button>
         <ul
           className={`list ${isMenuOpened ? "list--opened" : "list--closed"}`}
@@ -72,6 +72,9 @@ const Header = ({ siteTitle }) => {
             <a href="https://www.zsk.poznan.pl/2021plany/technikum/plany/o17.html">
               Plan Lekcji
             </a>
+          </li>
+          <li>
+            <a href="https://spanko.zsktasks.gq">Spanko</a>
           </li>
         </ul>
       </div>
