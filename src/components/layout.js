@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       <Header siteTitle="zskTasks" />
       <div className="container">
         <main>{children}</main>
-        <footer>Copyright by part of 2C {new Date().getFullYear()} ©</footer>
+        <footer>Copyright © {new Date().getFullYear()} <a href="https://triplea.gq">TripleA</a></footer>
       </div>
     </>
   )
