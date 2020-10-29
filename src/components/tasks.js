@@ -4,10 +4,12 @@ import { format } from "light-date"
 
 import "./tasks.css"
 import Filters from "./filters"
+import { getGroupCombined, getOverallGroup } from "../utils/groups"
 
 export default class Tasks extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       error: "",
       data: [],
@@ -42,15 +44,11 @@ export default class Tasks extends React.Component {
   setOverallGroup(val) {
     this.setState({ overallGroup: val })
 
-    console.log("over")
-
     window.localStorage.setItem("overallGroup", val)
   }
 
   setGermanGroup(val) {
     this.setState({ germanGroup: val })
-
-    console.log("german")
 
     window.localStorage.setItem("germanGroup", val)
   }
@@ -58,20 +56,13 @@ export default class Tasks extends React.Component {
   applyFilters(array) {
     return array.filter(el => {
       if (
-        (el.subject === "Język Niemiecki Gr. 2" &&
-          this.state.germanGroup === "1") ||
-        (el.subject === "Język Niemiecki Gr. 1" &&
-          this.state.germanGroup === "2") ||
-        (el.subject.includes("2") &&
-          !el.subject.includes("Język Niemiecki") &&
-          this.state.overallGroup === "1") ||
-        (el.subject.includes("1") &&
-          !el.subject.includes("Język Niemiecki") &&
-          this.state.overallGroup === "2")
+        getGermanGroup(el.subject) === this.state.germanGroup ||
+        getOverallGroup(el.subject) === this.state.overallGroup ||
+        getGroupCombined(el.subject) === null
       ) {
-        return false
-      } else {
         return true
+      } else {
+        return false
       }
     })
   }

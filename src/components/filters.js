@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import { groups } from "../utils/groups"
+
 const Wrapper = styled.div`
   padding: 15px 0;
 `
@@ -44,8 +46,8 @@ const Filters = ({
           value={overallGroup}
         >
           <option value="" />
-          <option value="1">Grupa 1</option>
-          <option value="2">Grupa 2</option>
+          <option value={groups.OVERALL_1}>Grupa 1</option>
+          <option value={groups.OVERALL_2}>Grupa 2</option>
         </select>
       </Item>
       <Item>
@@ -57,8 +59,8 @@ const Filters = ({
           value={germanGroup}
         >
           <option value="" />
-          <option value="1">Grupa 1 (prof. Mikołajczak)</option>
-          <option value="2">Grupa 2 (prof. Tarabasz)</option>
+          <option value={groups.GERMAN_1}>Grupa 1 (prof. Mikołajczak)</option>
+          <option value={groups.GERMAN_2}>Grupa 2 (prof. Tarabasz)</option>
         </select>
       </Item>
     </Wrapper>
