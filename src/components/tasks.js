@@ -4,7 +4,7 @@ import { format } from "light-date"
 
 import "./tasks.css"
 import Filters from "./filters"
-import { getGroupCombined, getOverallGroup } from "../utils/groups"
+import { getGroupCombined, groups, getGroupType } from "../utils/groups"
 
 export default class Tasks extends React.Component {
   constructor(props) {
@@ -54,15 +54,25 @@ export default class Tasks extends React.Component {
   }
 
   applyFilters(array) {
+    const { germanGroup, overallGroup } = this.state
+
     return array.filter(el => {
-      if (
-        getGermanGroup(el.subject) === this.state.germanGroup ||
-        getOverallGroup(el.subject) === this.state.overallGroup ||
-        getGroupCombined(el.subject) === null
-      ) {
-        return true
-      } else {
-        return false
+      switch (getGroupCombined(el.subject)) {
+        case germanGroup:
+          return true
+        case overallGroup:
+          return true
+        case null:
+          return true
+        default:
+          switch (getGroupType(el.subject)) {
+            case groups.TYPE_GERMAN:
+              return !germanGroup
+            case groups.TYPE_OVERALL:
+              return !overallGroup
+            default:
+              return false
+          }
       }
     })
   }
