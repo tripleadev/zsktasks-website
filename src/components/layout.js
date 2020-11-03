@@ -10,16 +10,18 @@ import PropTypes from "prop-types"
 
 import Header from "./header"
 import "./layout.css"
+import { ThemeProvider } from "styled-components"
+import { theme } from '../utils/theme'
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header siteTitle="zskTasks" />
       <div className="container">
         <main>{children}</main>
         <footer>Copyright © {new Date().getFullYear()} <a href="https://triplea.gq">TripleA</a></footer>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 

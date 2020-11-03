@@ -35,11 +35,11 @@ const MenuIcon = styled.button`
 `
 
 const Bar = styled.div`
+  display: none;
   width: 100%;
   height: 5px;
   position: absolute;
   background: ${({ isMenuOpened }) => isMenuOpened ? 'transparent' : 'white'};
-  opacity: 1;
 
   left: 0;
   top: 50%;
@@ -69,6 +69,10 @@ const Bar = styled.div`
     top: ${({ isMenuOpened }) => isMenuOpened ? '0px' : '10px'};
     transition: all 0.3s ease-in-out;
   }
+
+  ${(props) => props.theme.mq.medium} {
+    display: unset;
+  }
 `
 
 const List = styled.ul`
@@ -87,7 +91,7 @@ const List = styled.ul`
     color: white;
   }
 
-  @media screen and (max-width: 800px) {
+  ${(props) => props.theme.mq.medium} {
     position: fixed;
     top: 0;
     background-color: #28146d;
