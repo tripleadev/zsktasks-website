@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 const StyledHeader = styled.header`
-  background: #28146d;
+  background: ${(props) => props.theme.colors.mainColor};
 `
 
 const InnerHeader = styled.div`
@@ -36,6 +36,7 @@ const MenuIcon = styled.button`
 
 const Bar = styled.div`
   display: none;
+  outline: none;
   width: 100%;
   height: 5px;
   position: absolute;
@@ -94,7 +95,7 @@ const List = styled.ul`
   ${(props) => props.theme.mq.medium} {
     position: fixed;
     top: 0;
-    background-color: #28146d;
+    background-color: ${(props) => props.theme.colors.mainColor};
     width: 100vw;
     height: 100vh;
     z-index: 9;
