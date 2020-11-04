@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
@@ -95,7 +95,7 @@ const List = styled.ul`
   ${(props) => props.theme.mq.medium} {
     position: fixed;
     top: 0;
-    background-color: ${(props) => props.theme.colors.mainColor};
+    background-color: ${props => props.theme.colors.mainColor};
     width: 100vw;
     height: 100vh;
     z-index: 9;

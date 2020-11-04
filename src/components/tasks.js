@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { format } from "light-date"
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import Filters from "./filters"
 import { getGroupCombined, groups, getGroupType } from "../utils/groups"
