@@ -1,33 +1,132 @@
 import React, { useState } from "react"
+import styled from "styled-components"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
-import "./header.css"
+const StyledHeader = styled.header`
+  background: ${(props) => props.theme.colors.mainColor};
+`
+
+const InnerHeader = styled.div`
+  margin: 0 auto;
+  width: 90vw;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const StyledLink = styled(Link)`
+  color: white;
+  font-weight: 700;
+  font-size: 1.9em;
+`
+
+const MenuIcon = styled.button`
+  width: 35px;
+  height: 25px;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`
+
+const Bar = styled.div`
+  display: none;
+  outline: none;
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  background: ${({ isMenuOpened }) => isMenuOpened ? 'transparent' : 'white'};
+
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: all 0.3s ease-in-out;
+
+  &::before,
+  &::after {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    background: white;
+
+    content: "";
+    left: 0;
+  }
+
+  &::before {
+    transform: ${({ isMenuOpened }) => isMenuOpened ? 'rotate(45deg)' : ''};
+    top: ${({ isMenuOpened }) => isMenuOpened ? '0px' : '-10px'};
+    transition: all 0.3s ease-in-out;
+  }
+
+  &::after {
+    transform: ${({ isMenuOpened }) => isMenuOpened ? 'rotate(-45deg)' : ''};
+    top: ${({ isMenuOpened }) => isMenuOpened ? '0px' : '10px'};
+    transition: all 0.3s ease-in-out;
+  }
+
+  ${(props) => props.theme.mq.medium} {
+    display: unset;
+  }
+`
+
+const List = styled.ul`
+  display: flex;
+
+  li {
+    color: white;
+    list-style-type: none;
+    padding: 0.5em;
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  ${(props) => props.theme.mq.medium} {
+    position: fixed;
+    top: 0;
+    background-color: ${props => props.theme.colors.mainColor};
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: center;
+    left: ${({ isMenuOpened }) => isMenuOpened ? '0vw' : '100vw'};
+  }
+`
 
 const Header = ({ siteTitle }) => {
   const [isMenuOpened, setMenuOpened] = useState(false)
   return (
-    <header>
-      <div className="header">
-        <Link to="/" className="link">
+    <StyledHeader>
+      <InnerHeader>
+        <StyledLink to="/">
           {siteTitle}
-        </Link>
-        <button
-          className="menuIcon"
+        </StyledLink>
+        <MenuIcon
           onClick={() => {
-            setMenuOpened(isMenuOpened ? false : true)
+            setMenuOpened(!isMenuOpened)
             document.body.style.overflow = isMenuOpened ? "auto" : "hidden"
           }}
         >
-          <div
-            className={`bar ${
-              isMenuOpened ? "bar--menu-opened" : "bar--menu-closed"
-            }`}
-          />
-        </button>
-        <ul
-          className={`list ${isMenuOpened ? "list--opened" : "list--closed"}`}
-        >
+          <Bar isMenuOpened={isMenuOpened}/>
+        </MenuIcon>
+        <List isMenuOpened={isMenuOpened}>
           <li>
             <Link
               to="/"
@@ -76,9 +175,9 @@ const Header = ({ siteTitle }) => {
           <li>
             <a href="https://spanko.zsktasks.gq">Spanko</a>
           </li>
-        </ul>
-      </div>
-    </header>
+        </List>
+      </InnerHeader>
+    </StyledHeader>
   )
 }
 

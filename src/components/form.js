@@ -5,8 +5,6 @@ import { Form, Datepicker, SubmitBtn, Input, Select } from "react-formik-ui"
 import * as Yup from "yup"
 import moment from "moment"
 
-import "./form.css"
-
 const formValidation = Yup.object().shape({
   datePicker: Yup.date()
     .min(new Date(Date.now() + -1 * 24 * 3600 * 1000), "Podaj późniejszą datę")
@@ -154,7 +152,7 @@ export default class AddForm extends Component {
 
   render() {
     return (
-      <div className="form">
+      <div>
         <Formik
           initialValues={{
             datePicker: "",
