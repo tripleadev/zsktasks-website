@@ -4,8 +4,9 @@ import { Formik } from "formik"
 import { Form, Datepicker, SubmitBtn, Input, Select } from "react-formik-ui"
 import * as Yup from "yup"
 import moment from "moment"
+import styled from "styled-components"
 
-import "./form.css"
+const StyledForm = styled.div``
 
 const formValidation = Yup.object().shape({
   datePicker: Yup.date()
@@ -154,7 +155,7 @@ export default class AddForm extends Component {
 
   render() {
     return (
-      <div className="form">
+      <StyledForm>
         <Formik
           initialValues={{
             datePicker: "",
@@ -230,7 +231,7 @@ export default class AddForm extends Component {
             <SubmitBtn />
           </Form>
         </Formik>
-      </div>
+      </StyledForm>
     )
   }
 }
