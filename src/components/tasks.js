@@ -1,10 +1,40 @@
 import React from "react"
 import axios from "axios"
 import { format } from "light-date"
+import styled from 'styled-components';
 
-import "./tasks.css"
 import Filters from "./filters"
 import { getGroupCombined, groups, getGroupType } from "../utils/groups"
+
+const Grid = styled.div`
+  margin-top: 2em;
+  display: grid;
+  width: 100%;
+
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
+`
+
+const GridItem = styled.div`
+  padding: 10px;
+  border: 3px solid #707070;
+  height: 300px;
+  overflow: auto;
+
+  *:not(:first-child) {
+    margin-top: 10px;
+  }
+`
+
+const Details = styled.div`
+  display: flex;
+  width: 100%;
+
+  *:not(:first-child) {
+    margin: 0 0 0 15px;
+  }
+`
 
 export default class Tasks extends React.Component {
   constructor(props) {
@@ -82,14 +112,14 @@ export default class Tasks extends React.Component {
       const filtered = this.applyFilters(this.state.data)
 
       return filtered.map(item => (
-        <div className="gridItem" key={item._id}>
+        <GridItem key={item._id}>
           <h2>{item.title}</h2>
-          <div className="details">
+          <Details>
             <h5>{item.subject}</h5>
             <h5>{format(new Date(item.date), "{dd}.{MM}.{yyyy}")}</h5>
-          </div>
+          </Details>
           <p>{item.description}</p>
-        </div>
+        </GridItem>
       ))
     } else return <p>{this.state.error}</p>
   }
@@ -103,7 +133,7 @@ export default class Tasks extends React.Component {
           overallGroup={this.state.overallGroup}
           germanGroup={this.state.germanGroup}
         />
-        <div className="grid">{this.renderItems()}</div>
+        <Grid>{this.renderItems()}</Grid>
       </div>
     )
   }
