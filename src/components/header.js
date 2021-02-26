@@ -168,7 +168,7 @@ const Header = ({ siteTitle }) => {
             </Link>
           </li>
           <li>
-            <a href="https://www.zsk.poznan.pl/2021plany/technikum/plany/o17.html">
+            <a href="https://plan.dudek.ga/">
               Plan Lekcji
             </a>
           </li>
