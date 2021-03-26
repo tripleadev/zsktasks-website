@@ -168,7 +168,7 @@ const Header = ({ siteTitle }) => {
             </Link>
           </li>
           <li>
-            <a href="https://plan.dudek.ga/">
+            <a href="https://plan.zsktasks.gq/">
               Plan Lekcji
             </a>
           </li>
